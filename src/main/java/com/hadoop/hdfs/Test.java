@@ -9,7 +9,7 @@ import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 public class Test {
-	private static final String NAME_NODE = "hdfs://192.168.0.170:9000";// nameNomeHost = localhost if you use hadoop in
+	private static final String NAME_NODE = "hdfs://192.168.0.170:9000/user/bid";// nameNomeHost = localhost if you use hadoop in
 																		// local mode
 
 	public static void main(String[] args) throws URISyntaxException, IOException {
@@ -20,7 +20,7 @@ public class Test {
 		conf.set("fs.hdfs.impl", org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
 		conf.set("fs.file.impl", org.apache.hadoop.fs.LocalFileSystem.class.getName());
 		FileSystem fs = FileSystem.get(conf);
-		Path filenamePath = new Path("input.txt");  
+		Path filenamePath = new Path("test.txt");  
 		try {
 		    if (fs.exists(filenamePath)) {
 		        fs.delete(filenamePath, true);
